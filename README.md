@@ -39,3 +39,20 @@ The map can be visualized by adding the `/map` topic in rviz.
 
 - Once created a map, I can load it and use it to localize the robot in the environment. To do this, I need to launch `ros2 launch ros2_navigation localization.launch.py` and set in rviz the fixed frame as `map` (if needed relaunch the localization.launch.py).  
 If wanted, I can also visualize in rviz `PoseWithCovariance` to see the localization and `ParticleCloud`. Maybe they will not work at first, but changing few parameters (or re-setting the fixed frame), they should work. Remember to set the topic of `ParticleCloud` as `/particle_cloud` and to set for both topics the `Reliability Policy` to `Best Effort`.
+
+- When wanting to navigate in an environment, launch `erl1_simulation.launch.py`, `mapping.launch.py` and `navigate.launch.py`. Then in rviz you can add the map, the cost map (local or global) and the path (local or global). You will see that, using the `2D goal pose` tool to move around the robot, the map will be updated.
+
+- When integrating PPDL with ROS2, the following command must be run  
+`(sudo) apt install "ros-jazzy-plansys2-*"`.  
+In our case, it is required also to clone the repo https://github.com/CarmineD8/plansys_interface.
+
+- The professor has run the following commands:
+```bash
+ros2 run plansys_interface get_plan
+ros2 run plansys_interface get_plan_and_execute
+ros2 launch plansys_interface distributed.launch.py
+```
+
+- To open a new plansys2 terminal, run `ros2 run plansys2_terminal plansys2_terminal`.  
+By typing `get domain`, the domain will be displayed; by typing `run`, the system will try to solve the problem. The terminal will be closed by typing `quit`.
+

@@ -196,6 +196,6 @@ def generate_launch_description():
     launchDescriptionObject.add_action(ekf_node)
     launchDescriptionObject.add_action(gz_image_bridge_node)
     launchDescriptionObject.add_action(aruco_launch)
-    launchDescriptionObject.add_action(ass_node)
+    #launchDescriptionObject.add_action(ass_node)
 
     return launchDescriptionObject
